@@ -1,2 +1,3 @@
 # CPPFun
-Fun with C++
+
+Examples of fun with C++
