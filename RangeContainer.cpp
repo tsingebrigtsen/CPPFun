@@ -10,16 +10,15 @@ concept Natural = std::integral<T>;
 
 template<Natural T>
 class RangeContainer {
-private:
     T startValue {};
     T endValue {};
 public:
-   RangeContainer ( T start, T end ) : startValue(start), endValue(end) {
-       if( startValue > endValue ){
-           startValue = 0;
-           endValue = 0;
-       }
-   }
+    RangeContainer ( const T& start, const T& end ) : startValue(start), endValue(end) {
+        if( startValue > endValue ){
+            startValue = 0;
+            endValue = 0;
+        }
+    }
 
     // begin Iterator class.
     class Iterator {
@@ -33,7 +32,7 @@ public:
         using pointer [[maybe_unused]] = const T*;
         using reference [[maybe_unused]] = const T&;
         
-        explicit Iterator( T value ) : data(value) {}
+        explicit Iterator( const T& value ) : data(value) {}
 
         T operator*() const {
             return data;
@@ -62,12 +61,12 @@ public:
         return Iterator{ endValue };
     }
 
-    // Overload of usual comparison e.g. <=
+    // Overload of usual comparison e.g. <
     auto operator<=>( RangeContainer& rhs ) {
         return ( endValue <=> rhs.endValue );
     };
 
-    bool operator==( RangeContainer& rhs ){
+    bool operator==( const RangeContainer& rhs ){
         return ( startValue == rhs.startValue ) && ( endValue == rhs.endValue );
     }
 };
