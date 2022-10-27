@@ -2,4 +2,6 @@
 
 Examples of fun with C++
 
-RangeContainer.cpp: A range [a,b] container with an Iterator
+rangeContainer.cpp: A range [a,b] container with a forward Iterator.
+
+producerConsumer.cpp: Producer-consumer pattern with two threads.
