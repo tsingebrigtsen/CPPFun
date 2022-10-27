@@ -78,7 +78,7 @@ int main() {
     RangeContainer container1{x, y };
     RangeContainer container2{ x + 2, y + 5 };
 
-    for( const Natural auto& i: container1 )
+    for( const Natural auto& i : container1 )
         cout << i << " ";
     cout << endl;
 

@@ -12,13 +12,13 @@ using std::endl;
 std::mutex mtx;
 std::condition_variable cond;
 
-// Buffer with 1 element.
+// Buffer with up to 10 elements.
 std::deque<int> dec;
 
 // Produce 10 items one by one.
 void producer() {
     for (int i = 0; i < 10; i++) {
-        std::this_thread::sleep_for(50ms );
+        std::this_thread::sleep_for( 50ms );
         std::lock_guard lock( mtx );
         dec.push_back( i );
         cout << "Notifying consumer" << endl;
